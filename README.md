@@ -2,8 +2,6 @@
 
 Welcome to **statquiz** — a tiny, friendly R package that turns your IDE into a personal stats training ground.
 
-If you've ever wished you could drill statistics the same way you'd practice piano scales or coding interview questions, this is exactly that… but way more fun.
-
 `statquiz` gives you **randomized statistical questions**, you solve them using real R code, and then the package tells you whether you nailed it or not. No multiple choice. No guessing. Just *you*, your brain, and your IDE.
 
 ---
@@ -92,8 +90,6 @@ If not… you’ll know it:
 You answered:   fail_to_reject
 Correct answer: reject
 ```
-
----
 
 ### 🎲 Example #2: Probability
 
