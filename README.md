@@ -6,8 +6,9 @@ If you've ever wished you could drill statistics the same way you'd practice pia
 
 `statquiz` gives you **randomized statistical questions**, you solve them using real R code, and then the package tells you whether you nailed it or not. No multiple choice. No guessing. Just *you*, your brain, and your IDE.
 
+---
 
-@# 🚀 What statquiz can do today
+# 🚀 What statquiz can do today
 
 Right now, statquiz supports two kinds of questions:
 
@@ -25,6 +26,7 @@ Perfect warmups or quick confidence builders.
 
 More topics are being added soon — t-tests, normal distributions, correlation, CLT, everything you'd see in an introductory stats sequence.
 
+---
 
 ## 📦 Installation
 
@@ -38,6 +40,7 @@ Then load it:
 library(statquiz)
 ```
 
+---
 
 ## Examples
 ### 🧠 Example #1: ANOVA Practice
