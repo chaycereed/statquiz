@@ -1,0 +1,23 @@
+Package: statquiz
+Type: Package
+Title: Interactive Statistics Practice in the R IDE
+Version: 0.0.0.1
+Authors@R:
+    person("Chayce", "Reed",
+           email = "code.jcr@gmail.com",
+           role = c("aut", "cre"))
+Description: A tiny R package for practicing statistics interactively 
+    inside your IDE. Generate randomized questions (ANOVA, probability, 
+    more coming soon), solve them with your own R code, and check your 
+    answers with immediate feedback. Designed as a lightweight tool for 
+    students, instructors, and anyone wanting extra hands-on practice.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+    stats
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
