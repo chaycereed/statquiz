@@ -4,9 +4,9 @@ Welcome to **statquiz** — a tiny, friendly R package that turns your IDE into 
 
 `statquiz` gives you **randomized statistical questions**, you solve them using real R code, and then the package tells you whether you nailed it or not. No multiple choice. No guessing. Just *you*, your brain, and your IDE.
 
----
+<br />
 
-# 🚀 What statquiz can do today
+## 🚀 What statquiz can do today
 
 Right now, statquiz supports two kinds of questions:
 
@@ -24,7 +24,7 @@ Perfect warmups or quick confidence builders.
 
 More topics are being added soon — t-tests, normal distributions, correlation, CLT, everything you'd see in an introductory stats sequence.
 
----
+<br />
 
 ## 📦 Installation
 
@@ -38,10 +38,10 @@ Then load it:
 library(statquiz)
 ```
 
----
+<br />
 
-## Examples
-### 🧠 Example #1: ANOVA Practice
+## 📝 Examples
+### Example #1: ANOVA Practice
 
 You ask for a question:
 
@@ -91,7 +91,7 @@ You answered:   fail_to_reject
 Correct answer: reject
 ```
 
-### 🎲 Example #2: Probability
+### Example #2: Probability
 
 ```r
 q <- question("probability", "easy")
@@ -114,7 +114,7 @@ user_answer <- 2/6
 check_answer(q, user_answer)
 ```
 
----
+<br />
 
 ## 📅 What's coming next
 
@@ -129,7 +129,7 @@ Upcoming topics include:
 - Hypothesis testing scenarios  
 - Interpretation-only questions (“Which test should you use?”)
 
----
+<br />
 
 ## 🤝 Contribute, criticize, suggest
 
@@ -141,10 +141,10 @@ If you have:
 - improvements  
 - or want to help with code  
 
-…go for it. PRs and suggestions are always welcome.
+Go for it. PRs and suggestions are always welcome.
 
----
+<br />
 
 ## 📜 License
 
-MIT © Your Name
+MIT License. See `LICENSE` for details.
