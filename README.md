@@ -2,27 +2,49 @@
 
 Welcome to **statquiz** — a tiny, friendly R package that turns your IDE into a personal stats training ground.
 
-`statquiz` gives you **randomized statistical questions**, you solve them using real R code, and then the package tells you whether you nailed it or not. No multiple choice. No guessing. Just *you*, your brain, and your IDE.
+`statquiz` gives you **randomized statistical questions**, you solve them using real R code, and the package checks your work.  
+No multiple choice. No guessing. Just *you*, your code, and a clean statistical workflow.
 
 <br />
 
 ## 🚀 What statquiz can do today
 
-Right now, statquiz supports two kinds of questions:
+statquiz now supports **a full set of core intro–intermediate statistics question types**:
 
-### ✔ **One-way ANOVA questions**
-You'll get:
-- Randomly simulated data  
-- A simple prompt asking whether to reject or fail to reject  
-- A clean R-based workflow to solve it  
+### ✔ One-way ANOVA  
+Classic three‑group ANOVA with real simulated data and decision-based answers.
 
-You run the ANOVA yourself — no shortcuts.
+### ✔ Basic probability  
+Lightweight numeric questions (like dice rolls or simple events).
 
-### ✔ **Basic probability questions**
-Straightforward probability tasks (like dice rolls).  
-Perfect warmups or quick confidence builders.
+### ✔ One-sample t-tests  
+Practice testing a mean against a null value using real data.
 
-More topics are being added soon — t-tests, normal distributions, correlation, CLT, everything you'd see in an introductory stats sequence.
+### ✔ Two-sample t-tests  
+Both:
+- Equal‑variance (pooled)  
+- Welch’s t-test (unequal variance)
+
+### ✔ Pearson & Spearman correlation  
+You decide whether the relationship is statistically significant.  
+Both correlation types are fully supported.
+
+### ✔ “Which test should I use?” questions  
+Scenario-based conceptual prompts where you must choose the correct statistical test.  
+Includes:
+- One-way ANOVA  
+- Welch’s ANOVA  
+- Kruskal–Wallis  
+- Pearson correlation  
+- Spearman correlation  
+- One-sample t-test  
+- Wilcoxon signed-rank  
+- Chi-square  
+- Fisher’s exact  
+- Two-sample t-test (equal or unequal variance)  
+- Wilcoxon rank-sum / Mann–Whitney U test  
+
+This makes statquiz a **full-spectrum practice toolkit** — both computational *and* conceptual.
 
 <br />
 
@@ -41,16 +63,15 @@ library(statquiz)
 <br />
 
 ## 📝 Examples
-### Example #1: ANOVA Practice
 
-You ask for a question:
+### Example #1: One-way ANOVA
 
 ```r
 q <- question("anova", "easy")
 cat(q$prompt)
 ```
 
-It will look something like:
+It will look like:
 
 ```
 Topic: One-way ANOVA (easy)
@@ -61,35 +82,16 @@ Test whether mean y differs across groups at alpha = 0.05.
 Return your decision as either 'reject' or 'fail_to_reject'.
 ```
 
-Now you solve it:
+Solve it:
 
 ```r
 fit <- aov(y ~ group, data = q$data)
-summary(fit)
-
 p <- summary(fit)[[1]][["Pr(>F)"]][1]
 user_answer <- ifelse(p < q$meta$alpha, "reject", "fail_to_reject")
-```
-
-Then check your work:
-
-```r
 check_answer(q, user_answer)
 ```
 
-If you're right:
-
-```
-✅ Correct!
-```
-
-If not… you’ll know it:
-
-```
-❌ Not quite.
-You answered:   fail_to_reject
-Correct answer: reject
-```
+---
 
 ### Example #2: Probability
 
@@ -98,7 +100,7 @@ q <- question("probability", "easy")
 cat(q$prompt)
 ```
 
-Example:
+Example prompt:
 
 ```
 Topic: Basic probability (easy)
@@ -107,41 +109,57 @@ You roll a fair 6-sided die once.
 What is the probability the outcome is in {1, 2}?
 ```
 
-Solve it:
+Solution:
 
 ```r
 user_answer <- 2/6
 check_answer(q, user_answer)
 ```
 
+---
+
+### Example #3: Which-test scenario
+
+```r
+q <- question("which_test", "easy")
+cat(q$prompt)
+```
+
+Prompt (example):
+
+```
+Which statistical test is most appropriate?
+
+You compare an ordinal 1–5 pain rating across four independent treatments.
+Data are skewed with clear outliers.
+
+Return the test name as a string.
+```
+
+You choose:
+
+```r
+check_answer(q, "kruskal_wallis")
+```
+
 <br />
 
 ## 📅 What's coming next
 
-Upcoming topics include:
-
-- Binomial distribution  
 - Normal distribution & z-scores  
-- Central Limit Theorem  
-- One/two-sample t-tests  
-- Pearson/Spearman correlation  
+- Binomial distribution  
+- Central Limit Theorem sampling demos  
 - Regression basics  
-- Hypothesis testing scenarios  
-- Interpretation-only questions (“Which test should you use?”)
+- Paired tests  
+- Effect sizes  
+- A future Shiny interface  
 
 <br />
 
 ## 🤝 Contribute, criticize, suggest
 
-This project is tiny, but that’s the fun part — it can grow in any direction.
-
-If you have:
-- question ideas  
-- new topics  
-- improvements  
-- or want to help with code  
-
-Go for it. PRs and suggestions are always welcome.
+This project is tiny, but that’s the fun part — it can grow in any direction.  
+PRs and suggestions are always welcome.
 
 <br />
 
