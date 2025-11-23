@@ -4,7 +4,6 @@
 generate_probability_question <- function(
   difficulty = "easy"
 ) {
-  set.seed(NULL)
 
   sides <- 6L
   event <- c(1L, 2L)

@@ -8,7 +8,6 @@ generate_ttest_one_sample_question <- function(
   alpha = 0.05,
   alternative = "two.sided"
 ) {
-  set.seed(NULL)
 
   difficulty <- tolower(difficulty)
   alternative <- match.arg(alternative, c("two.sided", "less", "greater"))

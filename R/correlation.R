@@ -8,7 +8,6 @@ generate_correlation_question <- function(
   alternative = "two.sided",
   method      = "pearson"
 ) {
-  set.seed(NULL)
 
   difficulty  <- tolower(difficulty)
   alternative <- match.arg(alternative, c("two.sided", "less", "greater"))

@@ -4,7 +4,6 @@
 generate_which_test_question <- function(
   difficulty = "medium"
 ) {
-  set.seed(NULL)
   difficulty <- tolower(difficulty)
 
   # Internal list of scenarios

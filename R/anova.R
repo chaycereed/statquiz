@@ -6,7 +6,6 @@ generate_anova_question <- function(
   n_per_group = 20,
   alpha = 0.05
 ) {
-  set.seed(NULL)
 
   difficulty <- tolower(difficulty)
   means <- switch(
