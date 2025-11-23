@@ -7,6 +7,15 @@ No multiple choice. No guessing. Just *you*, your code, and a clean statistical 
 
 ---
 
+<video src="https://github.com/user-attachments/assets/646c7a0c-1e8b-4292-a01e-291e08f060a5"
+       width="750"
+       autoplay
+       loop
+       muted>
+</video>
+
+---
+
 ## What statquiz can do today
 
 statquiz now supports **a full set of core intro–intermediate statistics question types**:
