@@ -5,9 +5,9 @@ Welcome to **statquiz** — a tiny, friendly R package that turns your IDE into 
 `statquiz` gives you **randomized statistical questions**, you solve them using real R code, and the package checks your work.  
 No multiple choice. No guessing. Just *you*, your code, and a clean statistical workflow.
 
-<br />
+---
 
-## 🚀 What statquiz can do today
+## What statquiz can do today
 
 statquiz now supports **a full set of core intro–intermediate statistics question types**:
 
@@ -46,9 +46,9 @@ Includes:
 
 This makes statquiz a **full-spectrum practice toolkit** — both computational *and* conceptual.
 
-<br />
+---
 
-## 📦 Installation
+## Installation
 
 ```r
 devtools::install_github("chaycereed/statquiz")
@@ -60,9 +60,9 @@ Then load it:
 library(statquiz)
 ```
 
-<br />
+---
 
-## 📝 Examples
+## Examples
 
 ### Example #1: One-way ANOVA
 
@@ -142,9 +142,9 @@ You choose:
 check_answer(q, "kruskal_wallis")
 ```
 
-<br />
+---
 
-## 📅 What's coming next
+## What's coming next
 
 - Normal distribution & z-scores  
 - Binomial distribution  
@@ -154,15 +154,15 @@ check_answer(q, "kruskal_wallis")
 - Effect sizes  
 - A future Shiny interface  
 
-<br />
+---
 
-## 🤝 Contribute, criticize, suggest
+## Contribute, criticize, suggest
 
 This project is tiny, but that’s the fun part — it can grow in any direction.  
 PRs and suggestions are always welcome.
 
-<br />
+---
 
-## 📜 License
+## License
 
 MIT License. See `LICENSE` for details.
