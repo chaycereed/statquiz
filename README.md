@@ -153,25 +153,6 @@ check_answer(q, "kruskal_wallis")
 
 ---
 
-## What's coming next
-
-- Normal distribution & z-scores  
-- Binomial distribution  
-- Central Limit Theorem sampling demos  
-- Regression basics  
-- Paired tests  
-- Effect sizes  
-- A future Shiny interface  
-
----
-
-## Contribute, criticize, suggest
-
-This project is tiny, but that’s the fun part — it can grow in any direction.  
-PRs and suggestions are always welcome.
-
----
-
 ## License
 
 MIT License. See `LICENSE` for details.
