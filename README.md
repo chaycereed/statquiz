@@ -2,8 +2,7 @@
 
 Welcome to **statquiz** — a tiny, friendly R package that turns your IDE into a personal stats training ground.
 
-`statquiz` gives you **randomized statistical questions**, you solve them using real R code, and the package checks your work.  
-No multiple choice. No guessing. Just *you*, your code, and a clean statistical workflow.
+`statquiz` gives you **randomized statistical questions**, you solve them, and the package checks your work.
 
 ---
 
