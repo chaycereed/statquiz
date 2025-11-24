@@ -17,7 +17,7 @@ Welcome to **statquiz** — a tiny, friendly R package that turns your IDE into 
 
 ## What statquiz can do today
 
-statquiz now supports **a full set of core intro–intermediate statistics question types**:
+statquiz supports:
 
 ### ✔ One-way ANOVA  
 Classic three‑group ANOVA with real simulated data and decision-based answers.
@@ -35,7 +35,7 @@ Both:
 
 ### ✔ Pearson & Spearman correlation  
 You decide whether the relationship is statistically significant.  
-Both correlation types are fully supported.
+Both correlation types are supported.
 
 ### ✔ “Which test should I use?” questions  
 Scenario-based conceptual prompts where you must choose the correct statistical test.  
@@ -51,8 +51,6 @@ Includes:
 - Fisher’s exact  
 - Two-sample t-test (equal or unequal variance)  
 - Wilcoxon rank-sum / Mann–Whitney U test  
-
-This makes statquiz a **full-spectrum practice toolkit** — both computational *and* conceptual.
 
 ---
 
