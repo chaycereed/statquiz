@@ -4,7 +4,6 @@ Title: Interactive Statistics Practice in the R IDE
 Version: 0.0.0.1
 Authors@R:
     person("Chayce", "Reed",
-           email = "code.jcr@gmail.com",
            role = c("aut", "cre"))
 Description: A tiny R package for practicing statistics interactively 
     inside your IDE. Generate randomized questions (ANOVA, probability, 

@@ -69,7 +69,7 @@ generate_correlation_question <- function(
     "You have paired observations in columns `x` and `y`.\n",
     "Test whether the true correlation between x and y ", alt_text,
     " at alpha = ", alpha, ".\n\n",
-    "Use cor.test(x, y, method = '", method, "', alternative = '",
+    "Hint: Use cor.test() with alternative = '",
     alternative, "').\n",
     "Return your decision as either 'reject' or 'fail_to_reject'."
   )
