@@ -17,8 +17,6 @@ Welcome to **statquiz** — a tiny, friendly R package that turns your IDE into 
 
 ## What statquiz can do today
 
-statquiz supports:
-
 ### ✔ One-way ANOVA  
 Classic three‑group ANOVA with real simulated data and decision-based answers.
 
