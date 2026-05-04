@@ -2,3 +2,4 @@
 
 export(check_answer)
 export(question)
+S3method(print,statquiz_question)

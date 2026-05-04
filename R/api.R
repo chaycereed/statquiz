@@ -55,6 +55,22 @@ question <- function(topic, difficulty = "medium", ...) {
   out
 }
 
+#' Print a statquiz question
+#'
+#' @export
+print.statquiz_question <- function(x, ...) {
+  cat(x$prompt, "\n")
+  if (!is.null(x$data)) {
+    cat(
+      "\n[Data attached: n = ", nrow(x$data),
+      ", columns: ", paste(names(x$data), collapse = ", "),
+      " — access with q$data]\n",
+      sep = ""
+    )
+  }
+  invisible(x)
+}
+
 #' Check a user's answer
 #'
 #' @export
