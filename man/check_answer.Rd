@@ -86,7 +86,7 @@ check_answer(q_prob, 2/6)
 
 ## Which-test (label)
 q_which <- question("which_test", "easy")
-cat(q_which$prompt, "\n")
+q_which
 
 ## Suppose you believe the correct test is Kruskal-Wallis:
 check_answer(q_which, "kruskal_wallis")

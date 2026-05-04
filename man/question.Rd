@@ -95,33 +95,33 @@ library(statquiz)
 
 ## One-way ANOVA
 q_anova <- question("anova", "easy")
-cat(q_anova$prompt, "\n")
+q_anova
 
 ## One-sample t-test
 q_t1 <- question("t_test", "easy")
-cat(q_t1$prompt, "\n")
+q_t1
 head(q_t1$data)
 
 ## Two-sample t-test
 q_t2 <- question("t_test_two_sample", "medium")
-cat(q_t2$prompt, "\n")
+q_t2
 table(q_t2$data$group)
 
 ## Pearson correlation
 q_corr_p <- question("correlation", "easy")
-cat(q_corr_p$prompt, "\n")
+q_corr_p
 head(q_corr_p$data)
 
 ## Spearman correlation
 q_corr_s <- question("spearman", "medium")
-cat(q_corr_s$prompt, "\n")
+q_corr_s
 
 ## Probability
 q_prob <- question("probability", "easy")
-cat(q_prob$prompt, "\n")
+q_prob
 
 ## Which-test (scenario-based)
 q_which <- question("which_test", "easy")
-cat(q_which$prompt, "\n")
+q_which
 }
 }

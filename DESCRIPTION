@@ -1,7 +1,7 @@
 Package: statquiz
 Type: Package
 Title: Interactive Statistics Practice in the R IDE
-Version: 0.0.0.1
+Version: 0.1.0
 Authors@R:
     person("Chayce", "Reed",
         email = "code.jcr@gmail.com",
@@ -12,7 +12,6 @@ Description: A tiny R package for practicing statistics interactively
     answers with immediate feedback.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Imports:

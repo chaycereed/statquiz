@@ -10,10 +10,9 @@ generate_anova_question <- function(
   difficulty <- tolower(difficulty)
   means <- switch(
     difficulty,
-    "none"   = c(10, 10, 10),
-    "easy"   = c(10, 12, 14),
+    "easy"   = c(10, 13, 16),
     "medium" = c(10, 12, 14),
-    "hard"   = c(10, 11, 13),
+    "hard"   = c(10, 11, 12),
     c(10, 12, 14)
   )
 

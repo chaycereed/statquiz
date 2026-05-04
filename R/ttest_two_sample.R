@@ -15,7 +15,6 @@ generate_ttest_two_sample_question <- function(
   # Effect size by difficulty: difference in group means (B - A)
   mean_diff <- switch(
     difficulty,
-    "none"   = 0,
     "easy"   = 1.0,
     "medium" = 0.7,
     "hard"   = 0.4,

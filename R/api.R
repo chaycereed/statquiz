@@ -21,7 +21,8 @@ question <- function(topic, difficulty = "medium", ...) {
 
     out <- generate_ttest_two_sample_question(difficulty = difficulty, ...)
 
-  } else if (topic %in% c("correlation", "corr", "pearson", "pearson_correlation")) {
+  } else if (topic %in% c("correlation", "corr",
+                           "pearson", "pearson_correlation")) {
 
     # Default correlation: Pearson
     out <- generate_correlation_question(
@@ -57,6 +58,14 @@ question <- function(topic, difficulty = "medium", ...) {
 
 #' Print a statquiz question
 #'
+#' Displays the question prompt and, for data-bearing topics, a one-line
+#' summary of the attached data frame. Called automatically when a
+#' \code{"statquiz_question"} object is typed at the console.
+#'
+#' @param x A \code{"statquiz_question"} object returned by
+#'   \code{\link{question}}.
+#' @param ... Currently unused.
+#' @return Invisibly returns \code{x}.
 #' @export
 print.statquiz_question <- function(x, ...) {
   cat(x$prompt, "\n")
@@ -86,7 +95,8 @@ check_answer <- function(question, user_answer) {
 
     if (!user_answer %in% c("reject", "fail_to_reject")) {
       stop(
-        "For decision questions, `user_answer` must be 'reject' or 'fail_to_reject'."
+        "For decision questions, `user_answer` must be ",
+        "'reject' or 'fail_to_reject'."
       )
     }
     correct <- identical(user_answer, question$solution)
@@ -94,7 +104,9 @@ check_answer <- function(question, user_answer) {
   } else if (type == "numeric_scalar") {
 
     if (!is.numeric(user_answer) || length(user_answer) != 1L) {
-      stop("For numeric questions, `user_answer` must be a single numeric value.")
+      stop(
+        "For numeric questions, `user_answer` must be a single numeric value."
+      )
     }
 
     tol <- question$meta$tolerance
@@ -105,7 +117,9 @@ check_answer <- function(question, user_answer) {
   } else if (type == "label") {
 
     if (!is.character(user_answer) || length(user_answer) != 1L) {
-      stop("For label questions, `user_answer` must be a single character string.")
+      stop(
+        "For label questions, `user_answer` must be a single character string."
+      )
     }
 
     norm <- tolower(trimws(user_answer))

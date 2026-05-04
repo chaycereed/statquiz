@@ -16,7 +16,6 @@ generate_correlation_question <- function(
   # Target correlation magnitude by difficulty
   target_r <- switch(
     difficulty,
-    "none"   = 0.0,
     "easy"   = 0.7,
     "medium" = 0.5,
     "hard"   = 0.3,
@@ -70,12 +69,13 @@ generate_correlation_question <- function(
     "Test whether the true correlation between x and y ", alt_text,
     " at alpha = ", alpha, ".\n\n",
     "Hint: Use cor.test() with alternative = '",
-    alternative, "').\n",
+    alternative, "'.\n",
     "Return your decision as either 'reject' or 'fail_to_reject'."
   )
 
   question <- list(
-    id          = paste0("corr_", method, "_", as.integer(stats::runif(1, 1, 1e6))),
+    id          = paste0("corr_", method, "_",
+                         as.integer(stats::runif(1, 1, 1e6))),
     topic       = "correlation",
     difficulty  = difficulty,
     prompt      = prompt_text,

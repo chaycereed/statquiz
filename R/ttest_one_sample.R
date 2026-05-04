@@ -15,7 +15,6 @@ generate_ttest_one_sample_question <- function(
   # Effect size by difficulty: mean shift from mu0
   mean_shift <- switch(
     difficulty,
-    "none"   = 0,
     "easy"   = 1.0,
     "medium" = 0.7,
     "hard"   = 0.4,

@@ -9,10 +9,11 @@ generate_which_test_question <- function(
   # Internal list of scenarios
   scenarios <- list(
     list(
-      id      = "one_way_anova",
-      label   = "one_way_anova",
-      aliases = c("one_way_anova", "anova", "one-way anova", "classic anova"),
-      prompt  = paste0(
+      id         = "one_way_anova",
+      difficulty = "easy",
+      label      = "one_way_anova",
+      aliases    = c("one_way_anova", "anova", "one-way anova", "classic anova"),
+      prompt     = paste0(
         "You want to compare the mean systolic blood pressure across 4 ",
         "independent treatment groups. The outcome is continuous and ",
         "approximately normal in each group, variances appear similar, ",
@@ -20,10 +21,11 @@ generate_which_test_question <- function(
       )
     ),
     list(
-      id      = "welch_anova",
-      label   = "welch_anova",
-      aliases = c("welch_anova", "welch's anova", "welch one-way anova"),
-      prompt  = paste0(
+      id         = "welch_anova",
+      difficulty = "medium",
+      label      = "welch_anova",
+      aliases    = c("welch_anova", "welch's anova", "welch one-way anova"),
+      prompt     = paste0(
         "You want to compare the mean reaction time across 3 independent ",
         "groups. The outcome is continuous and approximately normal, but ",
         "standard deviations differ substantially between groups and a ",
@@ -31,20 +33,22 @@ generate_which_test_question <- function(
       )
     ),
     list(
-      id      = "kruskal_wallis",
-      label   = "kruskal_wallis",
-      aliases = c("kruskal_wallis", "kruskal-wallis", "kruskal wallis"),
-      prompt  = paste0(
+      id         = "kruskal_wallis",
+      difficulty = "medium",
+      label      = "kruskal_wallis",
+      aliases    = c("kruskal_wallis", "kruskal-wallis", "kruskal wallis"),
+      prompt     = paste0(
         "You want to compare a 1–5 pain rating across 4 independent ",
         "treatment groups. The outcome is ordinal with strong skew and ",
         "clear outliers; normality assumptions are not reasonable.\n"
       )
     ),
     list(
-      id      = "pearson_correlation",
-      label   = "pearson_correlation",
-      aliases = c("pearson_correlation", "pearson", "pearson's correlation"),
-      prompt  = paste0(
+      id         = "pearson_correlation",
+      difficulty = "easy",
+      label      = "pearson_correlation",
+      aliases    = c("pearson_correlation", "pearson", "pearson's correlation"),
+      prompt     = paste0(
         "You measure height and weight for 100 adults and want to assess ",
         "the strength and direction of a linear relationship. Both ",
         "variables are continuous and approximately normal, with no ",
@@ -52,10 +56,11 @@ generate_which_test_question <- function(
       )
     ),
     list(
-      id      = "spearman_correlation",
-      label   = "spearman_correlation",
-      aliases = c("spearman_correlation", "spearman", "spearman's correlation"),
-      prompt  = paste0(
+      id         = "spearman_correlation",
+      difficulty = "medium",
+      label      = "spearman_correlation",
+      aliases    = c("spearman_correlation", "spearman", "spearman's correlation"),
+      prompt     = paste0(
         "You have 60 people rated on two 1–10 preference scales. The ",
         "relationship appears monotonic but not linear, and the data ",
         "contain several clear outliers. You want a rank-based measure ",
@@ -63,20 +68,22 @@ generate_which_test_question <- function(
       )
     ),
     list(
-      id      = "one_sample_t",
-      label   = "one_sample_t",
-      aliases = c("one_sample_t", "one-sample t-test", "one sample t test"),
-      prompt  = paste0(
+      id         = "one_sample_t",
+      difficulty = "easy",
+      label      = "one_sample_t",
+      aliases    = c("one_sample_t", "one-sample t-test", "one sample t test"),
+      prompt     = paste0(
         "You have a single sample of 25 observations of daily step counts. ",
         "The outcome is continuous and roughly normal. You want to test ",
         "whether the mean differs from 10,000 steps.\n"
       )
     ),
     list(
-      id      = "wilcoxon_signed_rank",
-      label   = "wilcoxon_signed_rank",
-      aliases = c("wilcoxon_signed_rank", "wilcoxon signed rank", "signed-rank"),
-      prompt  = paste0(
+      id         = "wilcoxon_signed_rank",
+      difficulty = "hard",
+      label      = "wilcoxon_signed_rank",
+      aliases    = c("wilcoxon_signed_rank", "wilcoxon signed rank", "signed-rank"),
+      prompt     = paste0(
         "You have before and after anxiety scores for the same 18 subjects ",
         "who completed a mindfulness program. The differences are strongly ",
         "skewed with several outliers, and the normality assumption for a ",
@@ -84,30 +91,33 @@ generate_which_test_question <- function(
       )
     ),
     list(
-      id      = "chi_square",
-      label   = "chi_square",
-      aliases = c("chi_square", "chi-square", "chisq", "chi square"),
-      prompt  = paste0(
+      id         = "chi_square",
+      difficulty = "easy",
+      label      = "chi_square",
+      aliases    = c("chi_square", "chi-square", "chisq", "chi square"),
+      prompt     = paste0(
         "You want to test whether smoking status (smoker/non-smoker) is ",
         "associated with exercise frequency (low/medium/high) in a sample ",
         "of 400 adults. All expected cell counts are comfortably above 5.\n"
       )
     ),
     list(
-      id      = "fishers_exact",
-      label   = "fishers_exact",
-      aliases = c("fishers_exact", "fisher's exact", "fisher exact"),
-      prompt  = paste0(
+      id         = "fishers_exact",
+      difficulty = "hard",
+      label      = "fishers_exact",
+      aliases    = c("fishers_exact", "fisher's exact", "fisher exact"),
+      prompt     = paste0(
         "You have a 2x2 table of treatment (drug/placebo) by outcome ",
         "(improved/not improved) in a very small clinical pilot study ",
         "with 12 total participants. Some expected cell counts are below 5.\n"
       )
     ),
     list(
-      id      = "two_sample_t_equal_var",
-      label   = "two_sample_t_equal_var",
-      aliases = c("two_sample_t_equal_var", "pooled t-test", "two-sample t-test equal var"),
-      prompt  = paste0(
+      id         = "two_sample_t_equal_var",
+      difficulty = "medium",
+      label      = "two_sample_t_equal_var",
+      aliases    = c("two_sample_t_equal_var", "pooled t-test", "two-sample t-test equal var"),
+      prompt     = paste0(
         "You compare mean exam scores between two independent teaching ",
         "methods (A vs B) with 40 students per group. Scores are ",
         "continuous, approximately normal, and group variances appear ",
@@ -115,10 +125,11 @@ generate_which_test_question <- function(
       )
     ),
     list(
-      id      = "two_sample_t_welch",
-      label   = "two_sample_t_welch",
-      aliases = c("two_sample_t_welch", "welch t-test", "welch two-sample t"),
-      prompt  = paste0(
+      id         = "two_sample_t_welch",
+      difficulty = "medium",
+      label      = "two_sample_t_welch",
+      aliases    = c("two_sample_t_welch", "welch t-test", "welch two-sample t"),
+      prompt     = paste0(
         "You compare mean length of hospital stay between two independent ",
         "treatments. Outcomes are continuous and roughly normal, but one ",
         "group has much larger variance than the other and equal-variance ",
@@ -126,11 +137,12 @@ generate_which_test_question <- function(
       )
     ),
     list(
-      id      = "mann_whitney_u",
-      label   = "mann_whitney_u",
-      aliases = c("mann_whitney_u", "mann-whitney", "wilcoxon rank sum",
-                  "wilcoxon rank-sum", "wilcoxon rank sum test"),
-      prompt  = paste0(
+      id         = "mann_whitney_u",
+      difficulty = "hard",
+      label      = "mann_whitney_u",
+      aliases    = c("mann_whitney_u", "mann-whitney", "wilcoxon rank sum",
+                     "wilcoxon rank-sum", "wilcoxon rank sum test"),
+      prompt     = paste0(
         "You compare pain scores (0–10) between two independent groups ",
         "receiving different analgesics. The outcome is ordinal with a ",
         "skewed distribution and outliers; a normality-based t-test is ",
@@ -139,8 +151,11 @@ generate_which_test_question <- function(
     )
   )
 
-  # Randomly select one scenario
-  s <- scenarios[[sample.int(length(scenarios), 1)]]
+  # Filter by difficulty, falling back to all scenarios if none match
+  pool <- Filter(function(s) s$difficulty == difficulty, scenarios)
+  if (length(pool) == 0L) pool <- scenarios
+
+  s <- pool[[sample.int(length(pool), 1L)]]
 
   accepted_labels <- unique(
     tolower(trimws(c(s$label, s$aliases)))
