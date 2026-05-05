@@ -1,35 +1,38 @@
 #' statquiz: Interactive statistics practice inside your R IDE
 #'
 #' @description
-#' `statquiz` is a small teaching and practice toolkit for statistics,
-#' designed to be used entirely inside the R environment. You request a
-#' randomized question with [question()], solve it using real R code
-#' (e.g., `aov()`, `t.test()`, `cor.test()`), and then check your work
-#' with [check_answer()].
+#' `statquiz` is a teaching and practice toolkit for statistics, designed to
+#' be used entirely inside the R environment. Generate a randomized question
+#' with [question()], solve it using real R code (e.g., `aov()`, `t.test()`,
+#' `cor.test()`), and check your work with [check_answer()]. For multi-question
+#' sessions, use [quiz()] and [score()]. To see the worked solution for any
+#' question, call [explain()].
 #'
 #' It is intended for students, self-learners, and instructors who want
-#' hands-on practice with core statistical ideas rather than multiple
-#' choice questions. All questions are built around real data objects
-#' and standard R workflows.
+#' hands-on practice with core statistical ideas rather than multiple-choice
+#' questions. All questions are built around real data objects and standard
+#' R workflows.
 #'
 #' @section Topics:
 #'
-#' Currently supported topics include:
+#' Supported topics include:
 #'
 #' - **One-way ANOVA**: compare means across three groups.
 #' - **Probability**: basic probability questions with numeric answers.
 #' - **One-sample t-test**: test a single mean against a null value.
-#' - **Two-sample t-test**: compare two independent groups, with
-#'   support for equal-variance and Welch-style settings.
+#' - **Two-sample t-test**: compare two independent groups, with support for
+#'   equal-variance and Welch-style settings.
+#' - **Paired t-test**: test whether the mean difference between paired
+#'   before/after measurements differs from zero.
 #' - **Correlation**:
 #'   - Pearson correlation for approximately linear, normal data.
 #'   - Spearman rank correlation for monotonic or non-normal data.
-#' - **Which test?**: scenario-based questions where you do not compute
-#'   anything, but instead choose the most appropriate test (e.g.,
-#'   one-way ANOVA, Welch's ANOVA, Kruskal-Wallis, Pearson/Spearman
-#'   correlation, one-sample t-test, Wilcoxon signed-rank, chi-square,
-#'   Fisher's exact, equal-variance two-sample t, Welch's t, or the
-#'   Wilcoxon rank-sum / Mann-Whitney U test).
+#' - **Which test?**: scenario-based questions where you choose the most
+#'   appropriate test (one-way ANOVA, Welch's ANOVA, Kruskal-Wallis,
+#'   Pearson/Spearman correlation, one-sample t-test, Wilcoxon signed-rank,
+#'   chi-square, Fisher's exact, equal-variance two-sample t, Welch's t, or
+#'   Wilcoxon rank-sum / Mann-Whitney U).
+#' - **Random**: pass `"random"` to draw a topic at random.
 #'
 #' @section Basic workflow:
 #'
@@ -41,10 +44,23 @@
 #'   \item Convert your result to the required answer format:
 #'         - `"reject"` / `"fail_to_reject"` for decision questions.
 #'         - A single numeric value for probability questions.
-#'         - A test label (e.g. `"kruskal_wallis"`) for which-test
-#'           questions.
+#'         - A test label (e.g. `"kruskal_wallis"`) for which-test questions.
 #'   \item Pass your answer to [check_answer()] to see if it matches the
 #'         hidden solution.
+#'   \item Optionally call [explain()] to see the worked solution.
+#' }
+#'
+#' @section Quiz mode:
+#'
+#' \preformatted{
+#'   qz <- quiz(n = 5, difficulty = "medium")
+#'   qz  # prints Question 1 of 5
+#'
+#'   # Solve and submit each question:
+#'   check_answer(qz, "reject")
+#'
+#'   # See final results:
+#'   score(qz)
 #' }
 #'
 #' @section Getting started:
@@ -54,14 +70,16 @@
 #'
 #'   # Generate an ANOVA question
 #'   q <- question("anova", "easy")
-#'   cat(q$prompt, "\n")
-#'   head(q$data)
+#'   q
 #'
 #'   # Solve and check
 #'   fit <- aov(y ~ group, data = q$data)
 #'   p   <- summary(fit)[[1]][["Pr(>F)"]][1]
 #'   ans <- ifelse(p < q$meta$alpha, "reject", "fail_to_reject")
 #'   check_answer(q, ans)
+#'
+#'   # See the worked solution
+#'   explain(q)
 #' }
 #'
 #' @docType package

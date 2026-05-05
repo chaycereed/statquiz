@@ -8,7 +8,8 @@ question(topic, difficulty = "medium", ...)
   \item{topic}{
     A character string specifying the topic, e.g. \code{"anova"},
     \code{"probability"}, \code{"t_test"}, \code{"t_test_two_sample"},
-    \code{"correlation"}, \code{"spearman"}, or \code{"which_test"}.
+    \code{"t_test_paired"}, \code{"correlation"}, \code{"spearman"},
+    \code{"which_test"}, or \code{"random"}.
     Some aliases are also supported (see Details).
   }
 
@@ -62,6 +63,12 @@ Supported topics currently include:
   equal-variance (pooled) t-test or Welch's t-test. You return
   \code{"reject"} or \code{"fail_to_reject"}.
 
+  \item \strong{\code{"t_test_paired"}},
+  \strong{\code{"paired_t"}}, \strong{\code{"paired"}}:
+  Paired t-test with \code{before} and \code{after} columns. You test
+  whether the mean difference (before - after) differs from zero and
+  return \code{"reject"} or \code{"fail_to_reject"}.
+
   \item \strong{\code{"correlation"}}, \strong{\code{"corr"}},
   \strong{\code{"pearson"}}, \strong{\code{"pearson_correlation"}}:
   Pearson correlation between \code{x} and \code{y}. You test whether
@@ -87,6 +94,10 @@ Supported topics currently include:
   \code{"fishers_exact"}, \code{"two_sample_t_equal_var"},
   \code{"two_sample_t_welch"}, or \code{"mann_whitney_u"}.
   These use \code{answer_type = "label"}.
+
+  \item \strong{\code{"random"}}:
+  Selects a topic at random from all available topics and generates
+  a question at the specified difficulty.
 }
 }
 \examples{

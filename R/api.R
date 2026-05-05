@@ -5,6 +5,14 @@ question <- function(topic, difficulty = "medium", ...) {
   topic      <- tolower(topic)
   difficulty <- tolower(difficulty)
 
+  if (topic == "random") {
+    all_topics <- c(
+      "anova", "probability", "t_test", "t_test_two_sample",
+      "correlation", "spearman", "which_test", "t_test_paired"
+    )
+    topic <- sample(all_topics, 1L)
+  }
+
   if (topic == "anova") {
 
     out <- generate_anova_question(difficulty = difficulty, ...)
@@ -21,10 +29,13 @@ question <- function(topic, difficulty = "medium", ...) {
 
     out <- generate_ttest_two_sample_question(difficulty = difficulty, ...)
 
+  } else if (topic %in% c("t_test_paired", "paired_t", "paired")) {
+
+    out <- generate_ttest_paired_question(difficulty = difficulty, ...)
+
   } else if (topic %in% c("correlation", "corr",
                            "pearson", "pearson_correlation")) {
 
-    # Default correlation: Pearson
     out <- generate_correlation_question(
       difficulty = difficulty,
       method     = "pearson",
@@ -33,7 +44,6 @@ question <- function(topic, difficulty = "medium", ...) {
 
   } else if (topic %in% c("spearman", "spearman_correlation")) {
 
-    # Spearman correlation
     out <- generate_correlation_question(
       difficulty = difficulty,
       method     = "spearman",
@@ -47,9 +57,9 @@ question <- function(topic, difficulty = "medium", ...) {
   } else {
     stop(
       "Unknown topic: '", topic, "'. Supported topics include: ",
-      "'anova', 'probability', 't_test' (one-sample), ",
-      "'t_test_two_sample' (two-sample), 'correlation'/'pearson', ",
-      "'spearman', 'which_test'."
+      "'anova', 'probability', 't_test', 't_test_two_sample', ",
+      "'t_test_paired', 'correlation'/'pearson', ",
+      "'spearman', 'which_test', 'random'."
     )
   }
 
@@ -80,14 +90,8 @@ print.statquiz_question <- function(x, ...) {
   invisible(x)
 }
 
-#' Check a user's answer
-#'
-#' @export
-check_answer <- function(question, user_answer) {
-
-  if (!inherits(question, "statquiz_question")) {
-    stop("`question` must be a statquiz_question object.")
-  }
+# Internal: validate and check a single question answer
+check_question_answer <- function(question, user_answer) {
 
   type <- question$answer_type
 
@@ -108,10 +112,8 @@ check_answer <- function(question, user_answer) {
         "For numeric questions, `user_answer` must be a single numeric value."
       )
     }
-
     tol <- question$meta$tolerance
     if (is.null(tol)) tol <- 1e-3
-
     correct <- abs(user_answer - question$solution) < tol
 
   } else if (type == "label") {
@@ -121,11 +123,9 @@ check_answer <- function(question, user_answer) {
         "For label questions, `user_answer` must be a single character string."
       )
     }
-
-    norm <- tolower(trimws(user_answer))
+    norm     <- tolower(trimws(user_answer))
     accepted <- question$meta$accepted_labels
-
-    correct <- norm %in% accepted
+    correct  <- norm %in% accepted
 
   } else {
     stop("Unsupported answer_type: ", type)
@@ -142,4 +142,20 @@ check_answer <- function(question, user_answer) {
   }
 
   invisible(correct)
+}
+
+#' Check a user's answer
+#'
+#' @export
+check_answer <- function(question, user_answer) {
+
+  if (inherits(question, "statquiz_quiz")) {
+    return(check_quiz_answer(question, user_answer))
+  }
+
+  if (!inherits(question, "statquiz_question")) {
+    stop("`question` must be a statquiz_question object.")
+  }
+
+  check_question_answer(question, user_answer)
 }

@@ -14,11 +14,13 @@ An R package for practicing statistics interactively inside your IDE.
 - Randomized questions built from real simulated data
 - Three difficulty levels: `"easy"`, `"medium"`, and `"hard"`
 - Immediate feedback when you check your answer
+- Pass `"random"` as the topic to draw from any topic at random
 - Supported topics:
   - One-way ANOVA
   - Basic probability (die rolls, coin flips, two-dice sums)
   - One-sample t-test
   - Two-sample t-test (equal-variance and Welch's)
+  - Paired t-test
   - Pearson and Spearman correlation
   - "Which test?" scenario questions covering 12 statistical tests
 
@@ -83,6 +85,46 @@ Accepted labels include `"one_way_anova"`, `"welch_anova"`, `"kruskal_wallis"`,
 `"pearson_correlation"`, `"spearman_correlation"`, `"one_sample_t"`,
 `"wilcoxon_signed_rank"`, `"chi_square"`, `"fishers_exact"`,
 `"two_sample_t_equal_var"`, `"two_sample_t_welch"`, and `"mann_whitney_u"`.
+
+### Quiz mode
+
+`quiz()` generates a sequence of questions and tracks your answers as you work
+through them. Call `score()` when finished to see your results.
+
+```r
+qz <- quiz(n = 5, difficulty = "medium")
+qz
+```
+
+Solve the current question using its data, then submit with `check_answer()`.
+The quiz advances automatically and prints the next question:
+
+```r
+q1 <- qz$questions[[1]]
+fit <- aov(y ~ group, data = q1$data)
+p   <- summary(fit)[[1]][["Pr(>F)"]][1]
+check_answer(qz, ifelse(p < q1$meta$alpha, "reject", "fail_to_reject"))
+```
+
+After all questions are answered:
+
+```r
+score(qz)
+```
+
+### Worked solutions
+
+Call `explain()` on any question to see the correct R code, the computed
+p-value or probability, and the reasoning behind the answer:
+
+```r
+q <- question("t_test_paired", "hard")
+q
+explain(q)
+```
+
+`explain()` works for every topic and can be called before or after submitting
+an answer.
 
 ## License
 

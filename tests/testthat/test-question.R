@@ -1,11 +1,17 @@
 test_that("question() returns a statquiz_question for each topic", {
   set.seed(1)
   topics <- c("anova", "probability", "t_test", "t_test_two_sample",
-              "correlation", "spearman", "which_test")
+              "t_test_paired", "correlation", "spearman", "which_test")
   for (topic in topics) {
     q <- question(topic, "easy")
     expect_s3_class(q, "statquiz_question")
   }
+})
+
+test_that("question('random') returns a statquiz_question", {
+  set.seed(1)
+  q <- question("random")
+  expect_s3_class(q, "statquiz_question")
 })
 
 test_that("question() sets topic and difficulty fields correctly", {
