@@ -1,7 +1,10 @@
 test_that("explain() runs without error for every topic", {
   set.seed(1)
-  topics <- c("anova", "probability", "t_test", "t_test_two_sample",
-              "t_test_paired", "correlation", "spearman", "which_test")
+  topics <- c(
+    "anova", "probability", "t_test", "t_test_two_sample",
+    "t_test_paired", "correlation", "spearman", "which_test",
+    "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank"
+  )
   for (topic in topics) {
     q <- question(topic)
     expect_error(explain(q), NA, label = paste("explain for topic:", topic))

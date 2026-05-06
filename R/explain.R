@@ -135,6 +135,51 @@ explain <- function(question) {
       )
     },
 
+    kruskal_wallis = {
+      kt <- suppressWarnings(
+        stats::kruskal.test(y ~ group, data = question$data)
+      )
+      paste0(
+        "Run a Kruskal-Wallis test:\n\n",
+        "  kt <- kruskal.test(y ~ group, data = q$data)\n",
+        "  # p = ", round(kt$p.value, 4), "\n\n",
+        "p ", if (kt$p.value < meta$alpha) "<" else ">=", " alpha (",
+        meta$alpha, "), so the correct decision is '", sol, "'."
+      )
+    },
+
+    wilcoxon_rank_sum = {
+      wt <- suppressWarnings(
+        stats::wilcox.test(y ~ group, data = question$data,
+                           alternative = meta$alternative)
+      )
+      paste0(
+        "Run a Wilcoxon rank-sum test:\n\n",
+        "  wt <- wilcox.test(y ~ group, data = q$data,\n",
+        "                    alternative = '", meta$alternative, "')\n",
+        "  # p = ", round(wt$p.value, 4), "\n\n",
+        "p ", if (wt$p.value < meta$alpha) "<" else ">=", " alpha (",
+        meta$alpha, "), so the correct decision is '", sol, "'."
+      )
+    },
+
+    wilcoxon_signed_rank = {
+      wt <- suppressWarnings(
+        stats::wilcox.test(question$data$before, question$data$after,
+                           paired      = TRUE,
+                           alternative = meta$alternative)
+      )
+      paste0(
+        "Run a paired Wilcoxon signed-rank test:\n\n",
+        "  wt <- wilcox.test(q$data$before, q$data$after,\n",
+        "                    paired      = TRUE,\n",
+        "                    alternative = '", meta$alternative, "')\n",
+        "  # p = ", round(wt$p.value, 4), "\n\n",
+        "p ", if (wt$p.value < meta$alpha) "<" else ">=", " alpha (",
+        meta$alpha, "), so the correct decision is '", sol, "'."
+      )
+    },
+
     stop("No explanation available for topic: ", topic)
   )
 
@@ -145,7 +190,7 @@ explain <- function(question) {
 .which_test_rationale <- function(scenario_id) {
   rationales <- c(
     one_way_anova =
-      "Continuous normal outcome across 3+ independent groups with equal variances.",
+      "Continuous normal outcome, 3+ independent groups, equal variances.",
     welch_anova =
       "Continuous normal outcome across 3+ groups with unequal variances.",
     kruskal_wallis =
@@ -155,7 +200,7 @@ explain <- function(question) {
     spearman_correlation =
       "Monotonic but non-linear association, or outliers present.",
     one_sample_t =
-      "Single continuous normal sample tested against a known population value.",
+      "Single continuous normal sample tested against a known value.",
     wilcoxon_signed_rank =
       "Paired or single sample with non-normal or skewed differences.",
     chi_square =

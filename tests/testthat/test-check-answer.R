@@ -103,8 +103,11 @@ test_that("non-statquiz_question input errors", {
 
 test_that("check_answer(q, q$solution) is TRUE for every topic", {
   set.seed(99)
-  topics <- c("anova", "probability", "t_test", "t_test_two_sample",
-              "correlation", "spearman", "which_test")
+  topics <- c(
+    "anova", "probability", "t_test", "t_test_two_sample",
+    "t_test_paired", "correlation", "spearman", "which_test",
+    "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank"
+  )
   for (topic in topics) {
     q <- question(topic)
     expect_true(check_answer(q, q$solution),

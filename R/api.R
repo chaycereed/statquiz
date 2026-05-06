@@ -54,12 +54,29 @@ question <- function(topic, difficulty = "medium", ...) {
 
     out <- generate_which_test_question(difficulty = difficulty, ...)
 
+  } else if (topic %in% c("kruskal_wallis", "kruskal",
+                           "kruskal_wallis_test")) {
+
+    out <- generate_kruskal_wallis_question(difficulty = difficulty, ...)
+
+  } else if (topic %in% c("wilcoxon_rank_sum", "mann_whitney",
+                           "mann_whitney_u")) {
+
+    out <- generate_wilcoxon_rank_sum_question(difficulty = difficulty, ...)
+
+  } else if (topic %in% c("wilcoxon_signed_rank", "signed_rank")) {
+
+    out <- generate_wilcoxon_signed_rank_question(
+      difficulty = difficulty, ...
+    )
+
   } else {
     stop(
       "Unknown topic: '", topic, "'. Supported topics include: ",
       "'anova', 'probability', 't_test', 't_test_two_sample', ",
-      "'t_test_paired', 'correlation'/'pearson', ",
-      "'spearman', 'which_test', 'random'."
+      "'t_test_paired', 'correlation'/'pearson', 'spearman', ",
+      "'kruskal_wallis', 'wilcoxon_rank_sum', ",
+      "'wilcoxon_signed_rank', 'which_test', 'random'."
     )
   }
 
