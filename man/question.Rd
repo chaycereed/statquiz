@@ -95,6 +95,24 @@ Supported topics currently include:
   \code{"two_sample_t_welch"}, or \code{"mann_whitney_u"}.
   These use \code{answer_type = "label"}.
 
+  \item \strong{\code{"kruskal_wallis"}},
+  \strong{\code{"kruskal"}}, \strong{\code{"kruskal_wallis_test"}}:
+  Kruskal-Wallis test on three groups (A, B, C) with skewed data.
+  The non-parametric counterpart to one-way ANOVA. Returns
+  \code{"reject"} or \code{"fail_to_reject"}.
+
+  \item \strong{\code{"wilcoxon_rank_sum"}},
+  \strong{\code{"mann_whitney"}}, \strong{\code{"mann_whitney_u"}}:
+  Wilcoxon rank-sum (Mann-Whitney U) test on two independent groups
+  with skewed data. The non-parametric counterpart to the two-sample
+  t-test. Returns \code{"reject"} or \code{"fail_to_reject"}.
+
+  \item \strong{\code{"wilcoxon_signed_rank"}},
+  \strong{\code{"signed_rank"}}:
+  Paired Wilcoxon signed-rank test with \code{before} and \code{after}
+  columns from skewed distributions. The non-parametric counterpart to
+  the paired t-test. Returns \code{"reject"} or \code{"fail_to_reject"}.
+
   \item \strong{\code{"random"}}:
   Selects a topic at random from all available topics and generates
   a question at the specified difficulty.

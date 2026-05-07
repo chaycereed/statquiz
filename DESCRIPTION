@@ -7,11 +7,11 @@ Authors@R:
         email = "code.jcr@gmail.com",
         role = c("aut", "cre"))
 Description: An R package for practicing statistics interactively inside
-    your IDE. Generate randomized questions across seven topics (ANOVA,
-    t-tests, correlation, probability, and more), solve them with standard
-    R functions, and check your answers with immediate feedback. Includes
-    a quiz mode for scored multi-question sessions and worked-solution
-    explanations via explain().
+    your IDE. Generate randomized questions across ten topics (ANOVA,
+    t-tests, non-parametric tests, correlation, probability, and more),
+    solve them with standard R functions, and check your answers with
+    immediate feedback. Includes a quiz mode for scored multi-question
+    sessions and worked-solution explanations via explain().
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

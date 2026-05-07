@@ -22,6 +22,9 @@ An R package for practicing statistics interactively inside your IDE.
   - Two-sample t-test (equal-variance and Welch's)
   - Paired t-test
   - Pearson and Spearman correlation
+  - Kruskal-Wallis test
+  - Wilcoxon rank-sum test (Mann-Whitney U)
+  - Wilcoxon signed-rank test
   - "Which test?" scenario questions covering 12 statistical tests
 
 ## Installation

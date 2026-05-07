@@ -27,6 +27,12 @@
 #' - **Correlation**:
 #'   - Pearson correlation for approximately linear, normal data.
 #'   - Spearman rank correlation for monotonic or non-normal data.
+#' - **Kruskal-Wallis test**: non-parametric comparison of 3+ independent
+#'   groups with skewed or ordinal data.
+#' - **Wilcoxon rank-sum test**: non-parametric comparison of two independent
+#'   groups (Mann-Whitney U equivalent).
+#' - **Wilcoxon signed-rank test**: non-parametric paired test for skewed
+#'   before/after differences.
 #' - **Which test?**: scenario-based questions where you choose the most
 #'   appropriate test (one-way ANOVA, Welch's ANOVA, Kruskal-Wallis,
 #'   Pearson/Spearman correlation, one-sample t-test, Wilcoxon signed-rank,

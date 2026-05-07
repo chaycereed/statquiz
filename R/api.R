@@ -8,7 +8,8 @@ question <- function(topic, difficulty = "medium", ...) {
   if (topic == "random") {
     all_topics <- c(
       "anova", "probability", "t_test", "t_test_two_sample",
-      "correlation", "spearman", "which_test", "t_test_paired"
+      "t_test_paired", "correlation", "spearman", "which_test",
+      "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank"
     )
     topic <- sample(all_topics, 1L)
   }
