@@ -106,7 +106,8 @@ test_that("check_answer(q, q$solution) is TRUE for every topic", {
   topics <- c(
     "anova", "probability", "t_test", "t_test_two_sample",
     "t_test_paired", "correlation", "spearman", "which_test",
-    "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank"
+    "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank",
+    "linear_regression", "chi_square"
   )
   for (topic in topics) {
     q <- question(topic)

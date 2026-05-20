@@ -9,7 +9,8 @@ question <- function(topic, difficulty = "medium", ...) {
     all_topics <- c(
       "anova", "probability", "t_test", "t_test_two_sample",
       "t_test_paired", "correlation", "spearman", "which_test",
-      "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank"
+      "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank",
+      "linear_regression", "chi_square"
     )
     topic <- sample(all_topics, 1L)
   }
@@ -71,13 +72,23 @@ question <- function(topic, difficulty = "medium", ...) {
       difficulty = difficulty, ...
     )
 
+  } else if (topic %in% c("linear_regression", "lm", "regression",
+                           "simple_regression")) {
+
+    out <- generate_linear_regression_question(difficulty = difficulty, ...)
+
+  } else if (topic %in% c("chi_square", "chisq", "chi_sq",
+                           "chi_square_test")) {
+
+    out <- generate_chi_square_question(difficulty = difficulty, ...)
+
   } else {
     stop(
       "Unknown topic: '", topic, "'. Supported topics include: ",
       "'anova', 'probability', 't_test', 't_test_two_sample', ",
       "'t_test_paired', 'correlation'/'pearson', 'spearman', ",
-      "'kruskal_wallis', 'wilcoxon_rank_sum', ",
-      "'wilcoxon_signed_rank', 'which_test', 'random'."
+      "'kruskal_wallis', 'wilcoxon_rank_sum', 'wilcoxon_signed_rank', ",
+      "'linear_regression', 'chi_square', 'which_test', 'random'."
     )
   }
 

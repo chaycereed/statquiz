@@ -27,12 +27,17 @@
 #' - **Correlation**:
 #'   - Pearson correlation for approximately linear, normal data.
 #'   - Spearman rank correlation for monotonic or non-normal data.
+#' - **Simple linear regression**: test whether x is a significant predictor
+#'   of y (H0: beta_1 = 0) using `lm()`.
 #' - **Kruskal-Wallis test**: non-parametric comparison of 3+ independent
 #'   groups with skewed or ordinal data.
 #' - **Wilcoxon rank-sum test**: non-parametric comparison of two independent
 #'   groups (Mann-Whitney U equivalent).
 #' - **Wilcoxon signed-rank test**: non-parametric paired test for skewed
 #'   before/after differences.
+#' - **Chi-square test of independence**: two categorical variables (group A/B
+#'   and outcome Low/Medium/High); test with
+#'   `chisq.test(table(q$data$group, q$data$outcome))`.
 #' - **Which test?**: scenario-based questions where you choose the most
 #'   appropriate test (one-way ANOVA, Welch's ANOVA, Kruskal-Wallis,
 #'   Pearson/Spearman correlation, one-sample t-test, Wilcoxon signed-rank,

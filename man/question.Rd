@@ -9,7 +9,7 @@ question(topic, difficulty = "medium", ...)
     A character string specifying the topic, e.g. \code{"anova"},
     \code{"probability"}, \code{"t_test"}, \code{"t_test_two_sample"},
     \code{"t_test_paired"}, \code{"correlation"}, \code{"spearman"},
-    \code{"which_test"}, or \code{"random"}.
+    \code{"which_test"}, \code{"chi_square"}, or \code{"random"}.
     Some aliases are also supported (see Details).
   }
 
@@ -95,6 +95,12 @@ Supported topics currently include:
   \code{"two_sample_t_welch"}, or \code{"mann_whitney_u"}.
   These use \code{answer_type = "label"}.
 
+  \item \strong{\code{"linear_regression"}}, \strong{\code{"lm"}},
+  \strong{\code{"regression"}}, \strong{\code{"simple_regression"}}:
+  Simple linear regression with columns \code{x} and \code{y}. You fit
+  \code{lm(y ~ x)} and test whether x is a significant predictor
+  (H0: beta_1 = 0). Returns \code{"reject"} or \code{"fail_to_reject"}.
+
   \item \strong{\code{"kruskal_wallis"}},
   \strong{\code{"kruskal"}}, \strong{\code{"kruskal_wallis_test"}}:
   Kruskal-Wallis test on three groups (A, B, C) with skewed data.
@@ -112,6 +118,13 @@ Supported topics currently include:
   Paired Wilcoxon signed-rank test with \code{before} and \code{after}
   columns from skewed distributions. The non-parametric counterpart to
   the paired t-test. Returns \code{"reject"} or \code{"fail_to_reject"}.
+
+  \item \strong{\code{"chi_square"}},
+  \strong{\code{"chisq"}}, \strong{\code{"chi_sq"}}:
+  Chi-square test of independence on a two-column data frame with
+  categorical variables \code{group} (A/B) and \code{outcome}
+  (Low/Medium/High). You test whether the two variables are independent
+  and return \code{"reject"} or \code{"fail_to_reject"}.
 
   \item \strong{\code{"random"}}:
   Selects a topic at random from all available topics and generates

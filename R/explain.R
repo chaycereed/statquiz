@@ -135,6 +135,32 @@ explain <- function(question) {
       )
     },
 
+    linear_regression = {
+      fit <- stats::lm(y ~ x, data = question$data)
+      p   <- summary(fit)$coefficients["x", "Pr(>|t|)"]
+      paste0(
+        "Fit a simple linear regression and inspect the slope:\n\n",
+        "  fit <- lm(y ~ x, data = q$data)\n",
+        "  p   <- summary(fit)$coefficients[\"x\", \"Pr(>|t|)\"]\n",
+        "  # p = ", round(p, 4), "\n\n",
+        "p ", if (p < meta$alpha) "<" else ">=", " alpha (",
+        meta$alpha, "), so the correct decision is '", sol, "'."
+      )
+    },
+
+    chi_square = {
+      tbl <- table(question$data$group, question$data$outcome)
+      ct  <- suppressWarnings(stats::chisq.test(tbl))
+      paste0(
+        "Run a chi-square test of independence:\n\n",
+        "  tbl <- table(q$data$group, q$data$outcome)\n",
+        "  ct  <- chisq.test(tbl)\n",
+        "  # p = ", round(ct$p.value, 4), "\n\n",
+        "p ", if (ct$p.value < meta$alpha) "<" else ">=", " alpha (",
+        meta$alpha, "), so the correct decision is '", sol, "'."
+      )
+    },
+
     kruskal_wallis = {
       kt <- suppressWarnings(
         stats::kruskal.test(y ~ group, data = question$data)

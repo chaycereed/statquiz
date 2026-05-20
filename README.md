@@ -25,6 +25,8 @@ An R package for practicing statistics interactively inside your IDE.
   - Kruskal-Wallis test
   - Wilcoxon rank-sum test (Mann-Whitney U)
   - Wilcoxon signed-rank test
+  - Simple linear regression
+  - Chi-square test of independence
   - "Which test?" scenario questions covering 12 statistical tests
 
 ## Installation
