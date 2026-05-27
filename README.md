@@ -45,6 +45,15 @@ library(statquiz)
 
 ## Usage
 
+### Browse available topics
+
+Call `topics()` to print all supported topics with their descriptions and
+expected answer types:
+
+```r
+topics()
+```
+
 ### Generate and solve a question
 
 Call `question()` with a topic and an optional difficulty. The question prints

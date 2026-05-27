@@ -45,6 +45,9 @@
 #'   Wilcoxon rank-sum / Mann-Whitney U).
 #' - **Random**: pass `"random"` to draw a topic at random.
 #'
+#' Call [topics()] at any time to print a table of all available topics,
+#' their descriptions, and expected answer types.
+#'
 #' @section Basic workflow:
 #'
 #' \enumerate{
