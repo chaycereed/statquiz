@@ -119,6 +119,13 @@ Supported topics currently include:
   columns from skewed distributions. The non-parametric counterpart to
   the paired t-test. Returns \code{"reject"} or \code{"fail_to_reject"}.
 
+  \item \strong{\code{"fishers_exact"}},
+  \strong{\code{"fisher"}}, \strong{\code{"fisher_exact"}}:
+  Fisher's exact test on a small 2x2 contingency table (group A/B by
+  outcome Success/Failure). Use when some expected cell counts are below 5.
+  You run \code{fisher.test(table(q$data$group, q$data$outcome))} and
+  return \code{"reject"} or \code{"fail_to_reject"}.
+
   \item \strong{\code{"chi_square"}},
   \strong{\code{"chisq"}}, \strong{\code{"chi_sq"}}:
   Chi-square test of independence on a two-column data frame with

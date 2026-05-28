@@ -38,6 +38,8 @@
 #' - **Chi-square test of independence**: two categorical variables (group A/B
 #'   and outcome Low/Medium/High); test with
 #'   `chisq.test(table(q$data$group, q$data$outcome))`.
+#' - **Fisher's exact test**: small 2x2 table (group A/B by Success/Failure)
+#'   where expected cell counts fall below 5; test with `fisher.test()`.
 #' - **Which test?**: scenario-based questions where you choose the most
 #'   appropriate test (one-way ANOVA, Welch's ANOVA, Kruskal-Wallis,
 #'   Pearson/Spearman correlation, one-sample t-test, Wilcoxon signed-rank,

@@ -10,7 +10,7 @@ question <- function(topic, difficulty = "medium", ...) {
       "anova", "probability", "t_test", "t_test_two_sample",
       "t_test_paired", "correlation", "spearman", "which_test",
       "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank",
-      "linear_regression", "chi_square"
+      "linear_regression", "chi_square", "fishers_exact"
     )
     topic <- sample(all_topics, 1L)
   }
@@ -82,13 +82,19 @@ question <- function(topic, difficulty = "medium", ...) {
 
     out <- generate_chi_square_question(difficulty = difficulty, ...)
 
+  } else if (topic %in% c("fishers_exact", "fisher", "fisher_exact",
+                           "fishers_exact_test")) {
+
+    out <- generate_fishers_exact_question(difficulty = difficulty, ...)
+
   } else {
     stop(
       "Unknown topic: '", topic, "'. Supported topics include: ",
       "'anova', 'probability', 't_test', 't_test_two_sample', ",
       "'t_test_paired', 'correlation'/'pearson', 'spearman', ",
       "'kruskal_wallis', 'wilcoxon_rank_sum', 'wilcoxon_signed_rank', ",
-      "'linear_regression', 'chi_square', 'which_test', 'random'."
+      "'linear_regression', 'chi_square', 'fishers_exact', ",
+      "'which_test', 'random'."
     )
   }
 

@@ -148,6 +148,22 @@ explain <- function(question) {
       )
     },
 
+    fishers_exact = {
+      tbl <- table(question$data$group, question$data$outcome)
+      ft  <- fisher.test(tbl)
+      paste0(
+        "Run Fisher's exact test:\n\n",
+        "  tbl <- table(q$data$group, q$data$outcome)\n",
+        "  ft  <- fisher.test(tbl)\n",
+        "  # p = ", round(ft$p.value, 4), "\n\n",
+        "p ", if (ft$p.value < meta$alpha) "<" else ">=", " alpha (",
+        meta$alpha, "), so the correct decision is '", sol, "'.\n\n",
+        "Fisher's exact test is used here (rather than chi-square) because\n",
+        "with only ", nrow(question$data), " total observations, some expected\n",
+        "cell counts fall below 5."
+      )
+    },
+
     chi_square = {
       tbl <- table(question$data$group, question$data$outcome)
       ct  <- suppressWarnings(stats::chisq.test(tbl))

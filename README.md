@@ -27,6 +27,7 @@ An R package for practicing statistics interactively inside your IDE.
   - Wilcoxon signed-rank test
   - Simple linear regression
   - Chi-square test of independence
+  - Fisher's exact test
   - "Which test?" scenario questions covering 12 statistical tests
 
 ## Installation

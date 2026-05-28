@@ -22,6 +22,7 @@ topics <- function() {
       "wilcoxon_rank_sum",
       "wilcoxon_signed_rank",
       "chi_square",
+      "fishers_exact",
       "which_test"
     ),
     description = c(
@@ -37,11 +38,13 @@ topics <- function() {
       "Wilcoxon rank-sum test on two independent skewed groups",
       "Wilcoxon signed-rank test on paired skewed data",
       "Chi-square test of independence on a 2x3 table",
+      "Fisher's exact test on a small 2x2 contingency table",
       "Scenario: choose the most appropriate statistical test"
     ),
     answer_type = c(
       "decision",
       "numeric",
+      "decision",
       "decision",
       "decision",
       "decision",
@@ -72,7 +75,7 @@ topics <- function() {
       tbl$topic[i], tbl$description[i], tbl$answer_type[i]
     ))
   }
-  cat(sprintf("\n  Pass topic = \"random\" to draw from all topics at random.\n"))
+  cat("\n  Pass topic = \"random\" to draw from all topics at random.\n")
 
   invisible(tbl)
 }
