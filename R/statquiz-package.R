@@ -55,6 +55,7 @@
 #' \enumerate{
 #'   \item Call [question()] with a topic, e.g. `question("anova")`.
 #'   \item Inspect the prompt and any attached data (e.g. `q$data`).
+#'   \item If stuck, call [hint()] for a nudge toward the right R function.
 #'   \item Solve the question using base R functions such as `aov()`,
 #'         `t.test()`, or `cor.test()`.
 #'   \item Convert your result to the required answer format:

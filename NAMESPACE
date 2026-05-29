@@ -2,6 +2,7 @@
 
 export(check_answer)
 export(explain)
+export(hint)
 export(question)
 export(quiz)
 export(score)

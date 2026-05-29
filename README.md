@@ -127,6 +127,16 @@ After all questions are answered:
 score(qz)
 ```
 
+### Hints
+
+If you're stuck, call `hint()` to get a nudge toward the right approach
+without seeing the full solution:
+
+```r
+q <- question("wilcoxon_signed_rank", "hard")
+hint(q)
+```
+
 ### Worked solutions
 
 Call `explain()` on any question to see the correct R code, the computed
