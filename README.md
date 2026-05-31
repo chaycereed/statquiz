@@ -14,6 +14,10 @@ An R package for practicing statistics interactively inside your IDE.
 - Randomized questions built from real simulated data
 - Three difficulty levels: `"easy"`, `"medium"`, and `"hard"`
 - Immediate feedback when you check your answer
+- Hints via `hint()` when you're stuck, without revealing the answer
+- Worked solutions via `explain()` showing the correct R code and p-value
+- Quiz mode via `quiz()` for scored multi-question sessions
+- `topics()` to browse all available topics at a glance
 - Pass `"random"` as the topic to draw from any topic at random
 - Supported topics:
   - One-way ANOVA
