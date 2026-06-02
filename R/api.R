@@ -10,7 +10,7 @@ question <- function(topic, difficulty = "medium", ...) {
       "anova", "probability", "t_test", "t_test_two_sample",
       "t_test_paired", "correlation", "spearman", "which_test",
       "kruskal_wallis", "wilcoxon_rank_sum", "wilcoxon_signed_rank",
-      "linear_regression", "chi_square", "fishers_exact"
+      "linear_regression", "chi_square", "fishers_exact", "welch_anova"
     )
     topic <- sample(all_topics, 1L)
   }
@@ -87,6 +87,11 @@ question <- function(topic, difficulty = "medium", ...) {
 
     out <- generate_fishers_exact_question(difficulty = difficulty, ...)
 
+  } else if (topic %in% c("welch_anova", "welch", "welchs_anova",
+                           "oneway_welch")) {
+
+    out <- generate_welch_anova_question(difficulty = difficulty, ...)
+
   } else {
     stop(
       "Unknown topic: '", topic, "'. Supported topics include: ",
@@ -94,7 +99,7 @@ question <- function(topic, difficulty = "medium", ...) {
       "'t_test_paired', 'correlation'/'pearson', 'spearman', ",
       "'kruskal_wallis', 'wilcoxon_rank_sum', 'wilcoxon_signed_rank', ",
       "'linear_regression', 'chi_square', 'fishers_exact', ",
-      "'which_test', 'random'."
+      "'welch_anova', 'which_test', 'random'."
     )
   }
 

@@ -32,7 +32,10 @@ hint <- function(question) {
 
     probability = {
       if (meta$type == "die_single") {
-        "Count how many sides of the die satisfy the event, then divide by the total number of sides."
+        paste0(
+          "Count how many sides of the die satisfy the event, ",
+          "then divide by the total number of sides."
+        )
       } else if (meta$type == "coin_exact_heads") {
         paste0(
           "Use the binomial formula for exactly k heads in n flips:\n\n",
@@ -97,6 +100,13 @@ hint <- function(question) {
         "Fit a simple linear regression and inspect the slope:\n\n",
         "  fit <- lm(y ~ x, data = q$data)\n",
         "  summary(fit)$coefficients[\"x\", \"Pr(>|t|)\"]\n\n",
+        "Compare the p-value to q$meta$alpha."
+      ),
+
+    welch_anova =
+      paste0(
+        "Run Welch's one-way ANOVA:\n\n",
+        "  oneway.test(y ~ group, data = q$data, var.equal = FALSE)\n\n",
         "Compare the p-value to q$meta$alpha."
       ),
 

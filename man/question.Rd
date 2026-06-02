@@ -119,6 +119,13 @@ Supported topics currently include:
   columns from skewed distributions. The non-parametric counterpart to
   the paired t-test. Returns \code{"reject"} or \code{"fail_to_reject"}.
 
+  \item \strong{\code{"welch_anova"}},
+  \strong{\code{"welch"}}, \strong{\code{"welchs_anova"}}:
+  Welch's one-way ANOVA on three groups (A, B, C) with substantially
+  unequal variances. You run
+  \code{oneway.test(y ~ group, data = q$data, var.equal = FALSE)} and
+  return \code{"reject"} or \code{"fail_to_reject"}.
+
   \item \strong{\code{"fishers_exact"}},
   \strong{\code{"fisher"}}, \strong{\code{"fisher_exact"}}:
   Fisher's exact test on a small 2x2 contingency table (group A/B by

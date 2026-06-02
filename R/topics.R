@@ -23,6 +23,7 @@ topics <- function() {
       "wilcoxon_signed_rank",
       "chi_square",
       "fishers_exact",
+      "welch_anova",
       "which_test"
     ),
     description = c(
@@ -39,11 +40,13 @@ topics <- function() {
       "Wilcoxon signed-rank test on paired skewed data",
       "Chi-square test of independence on a 2x3 table",
       "Fisher's exact test on a small 2x2 contingency table",
+      "Welch's one-way ANOVA for groups with unequal variances",
       "Scenario: choose the most appropriate statistical test"
     ),
     answer_type = c(
       "decision",
       "numeric",
+      "decision",
       "decision",
       "decision",
       "decision",

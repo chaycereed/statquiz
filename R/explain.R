@@ -148,6 +148,20 @@ explain <- function(question) {
       )
     },
 
+    welch_anova = {
+      wt <- stats::oneway.test(y ~ group, data = question$data,
+                               var.equal = FALSE)
+      paste0(
+        "Run Welch's one-way ANOVA:\n\n",
+        "  oneway.test(y ~ group, data = q$data, var.equal = FALSE)\n",
+        "  # p = ", round(wt$p.value, 4), "\n\n",
+        "p ", if (wt$p.value < meta$alpha) "<" else ">=", " alpha (",
+        meta$alpha, "), so the correct decision is '", sol, "'.\n\n",
+        "Welch's ANOVA is used instead of classical one-way ANOVA because\n",
+        "the group variances differ substantially."
+      )
+    },
+
     fishers_exact = {
       tbl <- table(question$data$group, question$data$outcome)
       ft  <- fisher.test(tbl)

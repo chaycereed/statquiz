@@ -35,6 +35,8 @@
 #'   groups (Mann-Whitney U equivalent).
 #' - **Wilcoxon signed-rank test**: non-parametric paired test for skewed
 #'   before/after differences.
+#' - **Welch's one-way ANOVA**: three groups with unequal variances; test with
+#'   `oneway.test(y ~ group, data = q$data, var.equal = FALSE)`.
 #' - **Chi-square test of independence**: two categorical variables (group A/B
 #'   and outcome Low/Medium/High); test with
 #'   `chisq.test(table(q$data$group, q$data$outcome))`.

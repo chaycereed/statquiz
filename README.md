@@ -32,6 +32,7 @@ An R package for practicing statistics interactively inside your IDE.
   - Simple linear regression
   - Chi-square test of independence
   - Fisher's exact test
+  - Welch's one-way ANOVA
   - "Which test?" scenario questions covering 12 statistical tests
 
 ## Installation
