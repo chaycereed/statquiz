@@ -6,16 +6,17 @@ Authors@R:
     person("Chayce", "Reed",
         email = "code.jcr@gmail.com",
         role = c("aut", "cre"))
-Description: An R package for practicing statistics interactively inside
-    your IDE. Generate randomized questions across eleven topics (ANOVA,
-    t-tests, non-parametric tests, correlation, regression, probability,
-    and more),
-    solve them with standard R functions, and check your answers with
-    immediate feedback. Includes a quiz mode for scored multi-question
-    sessions and worked-solution explanations via explain(). Topics span
-    twelve areas including ANOVA, t-tests, non-parametric tests,
-    correlation, regression, chi-square, probability, and more.
+Description: A toolkit for practicing statistics interactively inside the
+    R environment. Generates randomized questions across topics including
+    ANOVA, Welch's ANOVA, t-tests, non-parametric tests, correlation,
+    simple linear regression, chi-square, Fisher's exact test, probability,
+    and scenario-based test selection. Students solve questions using
+    standard R functions and check their answers with immediate feedback.
+    Includes a quiz mode for scored multi-question sessions, per-topic
+    hints, and worked-solution explanations.
 License: MIT + file LICENSE
+URL: https://github.com/chaycereed/statquiz
+BugReports: https://github.com/chaycereed/statquiz/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
